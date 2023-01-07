@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
+import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-   MenuStart ms = new MenuStart();
-        //PoleGry pg = new PoleGry();
+    public static void main(String[] args) {
+        Gra gra = new Gra();
+        gra.setVisible(true);
     }
 }

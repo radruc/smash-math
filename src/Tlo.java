@@ -10,7 +10,7 @@ class Tlo extends JPanel {
     public Tlo() {
 
         try {
-            tlo = ImageIO.read(new File("res/background.jpg"));
+            tlo = ImageIO.read(new File("res/background1.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
