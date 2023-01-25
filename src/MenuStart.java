@@ -1,64 +1,73 @@
 import javax.swing.*;
 import java.awt.*;
-public class MenuStart {
-    Tlo background = new Tlo();
-    JFrame menu_start = new JFrame();
-    JPanel przyciski = new JPanel();
-    JButton start = new JButton("START");
-    JButton tabwynikow = new JButton("TABLICA WYNIKÓW");
-    JButton wyjscie = new JButton("WYJŚCIE");
-    JLabel tytul = new JLabel("   SmashMath");
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+class MenuStart extends JPanel {
+    Tlo background = new Tlo("background");
+    JLayeredPane menu_start = new JLayeredPane();
+    JPanel buttons = new JPanel();
+    MenuButton start = new MenuButton("START");
+    MenuButton scoreTable = new MenuButton("TABLICA WYNIKÓW");
+    MenuButton exit = new MenuButton("WYJŚCIE");
+    JLabel title = new JLabel("Smash Math");
 
     MenuStart() {
-        Font font = new Font ("Arial",Font.PLAIN,40);
-        background.setSize(1280,768);
-        menu_start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        menu_start.setResizable(false);
-        menu_start.setTitle("SmashMath");
-        menu_start.setSize(1280, 768);
+        background.setSize(1280, 728);
+        menu_start.setMinimumSize(new Dimension(1280, 768));
+        menu_start.setMaximumSize(new Dimension(1280, 768));
+        menu_start.setPreferredSize(new Dimension(1280, 768));
 
-        menu_start.add(background);
-        tytul.setFont(new Font ("Arial",Font.PLAIN,60));
+        title.setFont(new Font("Ink Free", Font.BOLD, 80));
+        title.setForeground(Color.BLACK);
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        start.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                start.setForeground(new Color(224, 219, 209));
+            }
 
-        start.setOpaque(false);
-        start.setContentAreaFilled(false);
-        start.setBorderPainted(false);
-        start.setFont(font);
-        start.setSize(start.getWidth(), 70);
-        start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        start.setForeground(Color.BLACK);
-        tabwynikow.setForeground(Color.BLACK);
-        wyjscie.setForeground(Color.BLACK);
-        tytul.setForeground(Color.BLACK);
-        tytul.setAlignmentX(Component.CENTER_ALIGNMENT);
+            public void mouseExited(MouseEvent evt) {
+                start.setForeground(Color.BLACK);
+            }
+        });
+        scoreTable.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                scoreTable.setForeground(new Color(224, 219, 209));
+            }
 
-        tabwynikow.setOpaque(false);
-        tabwynikow.setContentAreaFilled(false);
-        tabwynikow.setBorderPainted(false);
-        tabwynikow.setFont(font);
-        tabwynikow.setSize(tabwynikow.getWidth(), 70);
-        tabwynikow.setAlignmentX(Component.CENTER_ALIGNMENT);
+            public void mouseExited(MouseEvent evt) {
+                scoreTable.setForeground(Color.BLACK);
+            }
+        });
 
-        wyjscie.setOpaque(false);
-        wyjscie.setContentAreaFilled(false);
-        wyjscie.setBorderPainted(false);
-        wyjscie.setFont(font);
-        wyjscie.setSize(wyjscie.getWidth(), 70);
-        wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exit.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                exit.setForeground(new Color(224, 219, 209));
+            }
 
-        przyciski.add(Box.createRigidArea(new Dimension(0, 30)));
-        przyciski.add(tytul);
-        przyciski.add(Box.createRigidArea(new Dimension(0, 100)));
-        przyciski.add(start,BorderLayout.CENTER);
-        przyciski.add(tabwynikow,BorderLayout.CENTER);
-        przyciski.add(wyjscie,BorderLayout.CENTER);
+            public void mouseExited(MouseEvent evt) {
+                exit.setForeground(Color.BLACK);
+            }
+        });
 
-        przyciski.setLayout(new GridLayout(6,1));
-        przyciski.setOpaque(false);
-        background.add(przyciski, BorderLayout.CENTER);
-        menu_start.setVisible(true);
-        background.repaint();
+        buttons.add(Box.createRigidArea(new Dimension(0, 50)));
+        buttons.add(title);
+        buttons.add(Box.createRigidArea(new Dimension(0, 175)));
+        buttons.add(start, BorderLayout.CENTER);
+        buttons.add(Box.createRigidArea(new Dimension(0, 40)));
+        buttons.add(scoreTable, BorderLayout.CENTER);
+        buttons.add(Box.createRigidArea(new Dimension(0, 40)));
+        buttons.add(exit, BorderLayout.CENTER);
+
+        buttons.setBounds(0, 0, 1280, 768);
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+        buttons.setOpaque(false);
+        buttons.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        menu_start.add(background, 1);
+        menu_start.add(buttons, 0);
+        add(menu_start);
     }
 
 }

@@ -7,10 +7,11 @@ import java.io.IOException;
 
 class Tlo extends JPanel {
     private BufferedImage tlo;
-    public Tlo() {
+
+    public Tlo(String bgname) {
 
         try {
-            tlo = ImageIO.read(new File("res/background1.jpg"));
+            tlo = ImageIO.read(new File("res/" + bgname + ".jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
