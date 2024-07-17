@@ -17,7 +17,7 @@ public class Game extends JFrame {
     static Random rnd = new Random(System.currentTimeMillis());
     static Mouse[] mouses = new Mouse[9];
 
-    Tlo background = new Tlo("background1");
+    Background background = new Background("background1");
     JPanel menubar = new JPanel();
     JButton menu = new JButton("MENU");
     JLabel time = new JLabel("Czas: " + timeLeft);
