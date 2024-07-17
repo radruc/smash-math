@@ -5,13 +5,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-class Tlo extends JPanel {
+class Background extends JPanel {
     private BufferedImage tlo;
 
-    public Tlo(String bgname) {
+    public Background(String bgname) {
 
         try {
-            tlo = ImageIO.read(new File("res/" + bgname + ".jpg"));
+            background = ImageIO.read(new File("res/" + bgname + ".jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
