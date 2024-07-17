@@ -4,7 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class GameMenu extends JPanel {
-    Tlo background = new Tlo("background1");
+    Background background = new Background("background1");
     JLayeredPane game_menu = new JLayeredPane();
     JPanel buttons = new JPanel();
     MenuButton resume = new MenuButton("WZNÓW  GRĘ");
